@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  background: linear-gradient(120deg, #f2f1ec, #d8ecf2, #c8b69b, #f2f1ec);
+  background-size: 300% 300%;
+  animation: moveColor 12s ease infinite;
+  color: #111;
+  overflow-x: hidden;
+}
+
+.loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: inherit;
+  animation: moveColor 12s ease infinite;
+  z-index: 100;
+  transition: opacity 1s ease, visibility 1s ease;
+  perspective: 900px;
+}
+
+.loading.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sphere-text {
+  width: 340px;
+  height: 210px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: sphereSpin 11s linear infinite;
+}
+
+.sphere-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  white-space: nowrap;
+  transform-origin: center;
+  backface-visibility: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.sphere-text span:nth-child(1) {
+  transform: translate(-50%, -50%) rotateY(0deg) translateZ(135px) rotateZ(-6deg);
+}
+
+.sphere-text span:nth-child(2) {
+  transform: translate(-50%, -50%) rotateY(45deg) translateZ(135px) rotateZ(5deg);
+}
+
+.sphere-text span:nth-child(3) {
+  transform: translate(-50%, -50%) rotateY(90deg) translateZ(135px) rotateZ(-4deg);
+}
+
+.sphere-text span:nth-child(4) {
+  transform: translate(-50%, -50%) rotateY(135deg) translateZ(135px) rotateZ(6deg);
+}
+
+.sphere-text span:nth-child(5) {
+  transform: translate(-50%, -50%) rotateY(180deg) translateZ(135px) rotateZ(-5deg);
+}
+
+.sphere-text span:nth-child(6) {
+  transform: translate(-50%, -50%) rotateY(225deg) translateZ(135px) rotateZ(4deg);
+}
+
+.sphere-text span:nth-child(7) {
+  transform: translate(-50%, -50%) rotateY(270deg) translateZ(135px) rotateZ(-6deg);
+}
+
+.sphere-text span:nth-child(8) {
+  transform: translate(-50%, -50%) rotateY(315deg) translateZ(135px) rotateZ(5deg);
+}
+
+.percent {
+  font-size: 13px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: showPercent 1s ease forwards 2s;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a,
+.contact-link {
+  text-decoration: none;
+  color: #111;
+  margin: 0 20px;
+  font-size: 15px;
+}
+
+.contact-link {
+  border-bottom: 2px solid #111;
+}
+
+.home {
+  min-height: 100vh;
+  padding: 180px 50px 80px;
+}
+
+.big-title {
+  font-size: 12vw;
+  font-weight: 900;
+  letter-spacing: -6px;
+  margin: 0;
+}
+
+.creating-line {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  margin-top: 20px;
+  color: #28465a;
+}
+
+#changing-word {
+  color: #8b6f56;
+  font-style: italic;
+}
+
+.image-box {
+  width: 450px;
+  margin: 20px auto;
+  position: relative;
+  text-align: center;
+}
+
+.center-video {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.skills {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.based {
+  position: absolute;
+  right: 80px;
+  top: 350px;
+  letter-spacing: 10px;
+  font-size: 12px;
+}
+
+.description {
+  width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 14px;
+}
+
+.about,
+.contact {
+  padding: 100px 50px;
+}
+
+.about h2,
+.contact h2 {
+  font-size: 60px;
+}
+
+.about p,
+.contact p {
+  font-size: 20px;
+  max-width: 600px;
+}
+
+.contact a {
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+}
+
+@keyframes sphereSpin {
+  to {
+    transform: rotateX(10deg) rotateY(360deg);
+  }
+}
+
+@keyframes showPercent {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveColor {
+  0% { background-position: left; }
+  50% { background-position: right; }
+  100% { background-position: left; }
+}
+
+@media (max-width: 900px) {
+
+  nav {
+    display: none;
+  }
+
+  .home {
+    padding: 140px 25px;
+  }
+
+  .big-title {
+    font-size: 18vw;
+  }
+
+  .image-box {
+    width: 100%;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .based {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
